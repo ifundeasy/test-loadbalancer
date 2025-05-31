@@ -6,8 +6,8 @@ metadata:
 data:
   APP_PORT: "3000"
   APP_NAME: "grpc-client-balanced"
-  APP_CLIENT_DELAY_MS: "200"
-  DNS_RESOLVER_DELAY_MS: "30000"
+  APP_CLIENT_DELAY_MS: "2000"
+  DNS_RESOLVER_DELAY_MS: "10000"
   OTEL_RPC_URI: "otel-collector:4317"
   PYROSCOPE_URI: "http://pyroscope:4040"
   EXTERNAL_GRPC: "dns:///grpc-server.ns-one.svc.cluster.local:50051"

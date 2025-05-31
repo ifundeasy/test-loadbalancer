@@ -11,6 +11,8 @@ data:
   PYROSCOPE_URI: "http://pyroscope:4040"
   EXTERNAL_GRPC: "grpc-server:50051"
   EXTERNAL_HTTP: "http-server-1:3000"
+  # # With $ ngrok tcp 27017
+  # MONGO_URI: "mongodb://root:mypswd123@0.tcp.ap.ngrok.io:19227"
   MONGO_URI: "mongodb://root:mypswd123@host.docker.internal:27017"
   MONGO_DB_NAME: "grafana"
 ---
