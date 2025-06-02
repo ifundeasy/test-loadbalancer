@@ -6,7 +6,8 @@ metadata:
 data:
   APP_PORT: "3000"
   APP_NAME: "grpc-client"
-  APP_CLIENT_DELAY_MS: "1"
+  APP_CLIENT_DELAY_MS: "2000"
+  DNS_RESOLVER_DELAY_MS: "10000"
   OTEL_RPC_URI: "otel-collector:4317"
   PYROSCOPE_URI: "http://pyroscope:4040"
   EXTERNAL_GRPC: "dns:///grpc-server.ns-one.svc.cluster.local:50051"
@@ -20,7 +21,7 @@ metadata:
   name: grpc-client
   namespace: ns-one
 spec:
-  replicas: 20
+  replicas: 1
   selector:
     matchLabels:
       app: grpc-client
@@ -31,7 +32,7 @@ spec:
     spec:
       containers:
         - name: grpc-client
-          image: ifundeasy/simple-crud:latest
+          image: ifundeasy/simple-crud:v1.0.5
           imagePullPolicy: Always
           envFrom:
             - configMapRef:

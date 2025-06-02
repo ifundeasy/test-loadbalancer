@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: http-server-1
-          image: ifundeasy/simple-crud:latest
+          image: ifundeasy/simple-crud:v1.0.5
           imagePullPolicy: Always
           envFrom:
             - configMapRef:

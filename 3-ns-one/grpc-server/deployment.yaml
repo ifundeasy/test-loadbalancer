@@ -11,9 +11,8 @@ data:
   PYROSCOPE_URI: "http://pyroscope:4040"
   EXTERNAL_GRPC: "grpc-server:50051"
   EXTERNAL_HTTP: "http-server-1:3000"
-  # # With $ ngrok tcp 27017
-  # MONGO_URI: "mongodb://root:mypswd123@0.tcp.ap.ngrok.io:19227"
-  MONGO_URI: "mongodb://root:mypswd123@host.docker.internal:27017"
+  MONGO_URI: "mongodb://root:mypswd123@0.tcp.ap.ngrok.io:16166"
+  # MONGO_URI: "mongodb://root:mypswd123@host.docker.internal:27017"
   MONGO_DB_NAME: "grafana"
 ---
 apiVersion: apps/v1
@@ -33,7 +32,7 @@ spec:
     spec:
       containers:
         - name: grpc-server
-          image: ifundeasy/simple-crud:latest
+          image: ifundeasy/simple-crud:v1.0.5
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -77,7 +76,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: grpc-server
-  minReplicas: 1
+  minReplicas: 2
   maxReplicas: 5
   metrics:
     - type: Resource
